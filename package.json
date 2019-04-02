@@ -1,10 +1,10 @@
 {
   "name": "vue-minesweeper",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve ./demo/main",
+    "build:demo": "vue-cli-service build ./demo/main",
+    "build": "vue-cli-service build --target lib --name VueMinesweeper src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
