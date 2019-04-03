@@ -35,7 +35,6 @@
   "jsDelivr": "dist/VueMinesweeper.umd.min.js",
   "files": [
     "dist",
-    "scss",
     "src"
   ]
 }

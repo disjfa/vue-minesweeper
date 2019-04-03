@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import VueMinesweeper from './components/VueMinesweeper.vue';
+import MinesweeperGame from './components/MinesweeperGame.vue';
 
 function install(Vue, options = {}) {
-  Vue.component('VueMinesweeper', VueMinesweeper);
+  Vue.component('MinesweeperGame', MinesweeperGame);
 }
 
 if (typeof window !== 'undefined'
