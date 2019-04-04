@@ -1,9 +1,17 @@
 {
     "name": "vue-minesweeper",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Minesweeper plugin for vuejs",
     "license": "MIT",
     "author": "disjfa <disjfa@disjfa.nl>",
+    "homepage": "https://disjfa.github.io/vue-minesweeper/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/disjfa/vue-minesweeper"
+    },
+    "bugs": {
+        "url": "https://github.com/disjfa/vue-minesweeper/issues"
+    },
     "scripts": {
         "build": "vue-cli-service build --target lib --name VueMinesweeper src/index.js",
         "build:demo": "vue-cli-service build ./demo/main",
