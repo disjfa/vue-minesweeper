@@ -204,6 +204,17 @@ export default {
       return i + (y * cols + x);
     },
   },
+  watch: {
+    rows() {
+      this.initGrid();
+    },
+    cols() {
+      this.initGrid();
+    },
+    bombs() {
+      this.initGrid();
+    },
+  },
 };
 </script>
 
