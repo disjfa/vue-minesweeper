@@ -1,6 +1,6 @@
 {
     "name": "vue-minesweeper",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Minesweeper plugin for vuejs",
     "license": "MIT",
     "author": "disjfa <disjfa@disjfa.nl>",
@@ -9,6 +9,7 @@
         "build:demo": "vue-cli-service build ./demo/main",
         "contributors:add": "all-contributors add",
         "contributors:generate": "all-contributors generate",
+        "deploy": "gh-pages -d dist",
         "lint": "vue-cli-service lint",
         "serve": "vue-cli-service serve ./demo/main",
         "test:unit": "vue-cli-service test:unit"
@@ -30,6 +31,7 @@
         "core-js": "^2.6.5",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0",
+        "gh-pages": "^2.0.1",
         "node-sass": "^4.9.0",
         "sass-loader": "^7.1.0",
         "vue": "^2.6.6",
