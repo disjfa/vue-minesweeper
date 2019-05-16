@@ -43,9 +43,12 @@ export default {
       background: rgba(0, 0, 0, 0.1);
       border: 1px white solid;
       color: #2c3e50;
+      cursor: pointer;
       display: flex;
       font-size: 1.3em;
       justify-content: center;
+      min-height: 40px;
+      min-width: 40px;
     }
 
     &-bomb {

@@ -232,6 +232,9 @@ export default {
     }
 
     &-grid {
+      user-select: none;
+      position: relative;
+      overflow: auto;
       display: grid;
       grid-template-columns: repeat(9, 1fr);
       grid-auto-rows: 1fr;
