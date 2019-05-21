@@ -17,7 +17,7 @@
         "build:demo": "vue-cli-service build ./demo/main",
         "contributors:add": "all-contributors add",
         "contributors:generate": "all-contributors generate",
-        "deploy": "gh-pages -d dist",
+        "deploy": "npm run build:demo && gh-pages -d dist",
         "lint": "vue-cli-service lint",
         "serve": "vue-cli-service serve ./demo/main",
         "test:unit": "vue-cli-service test:unit"

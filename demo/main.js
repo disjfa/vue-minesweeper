@@ -9,7 +9,6 @@ Vue.use(VueRouter);
 Vue.use(VueMinesweeper);
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
     {
       path: '/:rows/:cols/:bombs',

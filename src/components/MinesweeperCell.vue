@@ -47,8 +47,8 @@ export default {
       display: flex;
       font-size: 1.3em;
       justify-content: center;
-      min-height: 40px;
-      min-width: 40px;
+      min-height: 35px;
+      min-width: 35px;
     }
 
     &-bomb {
