@@ -1,28 +1,14 @@
 <template>
   <div>
     <div class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="form-group col">
-            <label for="input-rows">Rows</label>
-            <input type="number" v-model.number="rows" class="form-control"
-                   min="1" max="50" id="input-rows">
-          </div>
-          <div class="form-group col">
-            <label for="input-cols">Cols</label>
-            <input type="number" v-model.number="cols" class="form-control"
-                   min="1" max="50" id="input-cols">
-          </div>
-          <div class="form-group col">
-            <label for="input-bombs">Bombs</label>
-            <input type="number" v-model.number="bombs" class="form-control"
-                   min="1" max="99" id="input-bombs">
-          </div>
-        </div>
+      <div class="container py-3">
+        <router-link :to="{name: 'home'}" class="btn btn-outline-secondary" aria-label="Back">
+          <i class="fa fa-arrow-left"></i>
+        </router-link>
+        <h3 class="d-inline btn">Vue minesweeper</h3>
       </div>
     </div>
-    <div class="container py-3">
-      <h3 class="text-center">The game</h3>
+    <div class="container pb-3">
       <div class="row justify-content-md-center">
         <div class="col"
              v-if="doesItFit()"

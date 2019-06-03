@@ -7,7 +7,7 @@
       <a href="#" @click.prevent="initGrid">
         &#9786;
       </a>
-      <div class="minesweeper-timer">0</div>
+      <minesweeper-timer class="minesweeper-timer" :finished="finished"></minesweeper-timer>
     </div>
 
     <div class="minesweeper-grid" :style="getGridStyle()">
@@ -27,11 +27,13 @@
 
 <script>
 import MinesweeperCell from './MinesweeperCell.vue';
+import MinesweeperTimer from './MinesweeperTimer.vue';
 
 export default {
   name: 'minesweeper-game',
   components: {
     MinesweeperCell,
+    MinesweeperTimer,
   },
   props: {
     cols: {
@@ -89,9 +91,25 @@ export default {
         }
       }
       this.grid = grid;
-      this.finished = false;
+      this.finished = true;
+      this.$nextTick(() => {
+        this.finished = false;
+      });
       this.won = false;
       this.bombCount = this.bombs;
+    },
+    haveWeWon() {
+      if (this.finished) {
+        return;
+      }
+      if (this.bombCount !== 0) {
+        return;
+      }
+      const remainingGrid = this.grid.find(g => !g.isOpen && !g.hasFlag);
+      if (!remainingGrid) {
+        this.finished = true;
+        this.won = true;
+      }
     },
     addFlag(cell) {
       if (this.finished) {
@@ -109,6 +127,7 @@ export default {
         return accumulator;
       }, 0);
       this.bombCount = this.bombs - flagCount;
+      this.haveWeWon();
     },
     doubleClick(cell, i) {
       if (this.finished) {
@@ -158,6 +177,7 @@ export default {
       this.setNeighborhood(cell, i);
       cell.isOpen = true;
       this.checkNeighborhood(cell);
+      this.haveWeWon();
     },
     checkNeighborhood(cell, force) {
       if (cell.bombCount !== 0 && force !== true) {

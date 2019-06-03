@@ -1,38 +1,5 @@
 <template>
   <div id="app">
-    <div class="container py-3">
-      <h1>Vue minesweeper</h1>
-      <p class="lead">
-        A simple minesweeper game.
-      </p>
-    </div>
-    <div class="bg-light">
-      <div class="container py-3">
-        <div class="btn-group">
-          <router-link href="#" class="btn btn-outline-success" :to="{name: 'game', params: {
-            rows: 9,
-            cols: 9,
-            bombs: 10,
-          }}">
-            Beginner
-          </router-link>
-          <router-link href="#" class="btn btn-outline-success" :to="{name: 'game', params: {
-            rows: 16,
-            cols: 16,
-            bombs: 40,
-          }}">
-            Intermediate
-          </router-link>
-          <router-link href="#" class="btn btn-outline-success" :to="{name: 'game', params: {
-            rows: 16,
-            cols: 30,
-            bombs: 99,
-          }}">
-            Expert
-          </router-link>
-        </div>
-      </div>
-    </div>
     <router-view></router-view>
     <div class="bg-light">
       <div class="container py-3">
@@ -67,7 +34,6 @@ export default {
   name: 'app',
   methods: {
     share() {
-      console.log(document.location);
       navigator.share({
         title: 'Vue minesweeper',
         text: 'A simple minesweeper game.',

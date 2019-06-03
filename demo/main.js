@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueAnalytics from 'vue-analytics';
 import App from './App.vue';
 import Game from './Game.vue';
+import Home from './Home.vue';
 import VueMinesweeper from '../src';
 
 Vue.config.productionTip = false;
@@ -11,6 +13,11 @@ Vue.use(VueMinesweeper);
 const router = new VueRouter({
   routes: [
     {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+    {
       path: '/:rows/:cols/:bombs',
       name: 'game',
       component: Game,
@@ -18,17 +25,16 @@ const router = new VueRouter({
     {
       path: '*',
       redirect: {
-        name: 'game',
-        params: {
-          rows: 9,
-          cols: 9,
-          bombs: 10,
-        },
+        name: 'home',
       },
     },
   ],
 });
 
+Vue.use(VueAnalytics, {
+  id: 'UA-140663214-1',
+  router,
+});
 
 new Vue({
   render: h => h(App),
