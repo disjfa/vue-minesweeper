@@ -1,16 +1,12 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import VueAnalytics from 'vue-analytics';
+import { createApp } from 'vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import App from './App.vue';
 import Game from './Game.vue';
 import Home from './Home.vue';
 import VueMinesweeper from '../src';
 
-Vue.config.productionTip = false;
-Vue.use(VueRouter);
-Vue.use(VueMinesweeper);
-
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -23,7 +19,7 @@ const router = new VueRouter({
       component: Game,
     },
     {
-      path: '*',
+      path: '/:pathMatch(.*)*',
       redirect: {
         name: 'home',
       },
@@ -31,12 +27,7 @@ const router = new VueRouter({
   ],
 });
 
-Vue.use(VueAnalytics, {
-  id: 'UA-140663214-1',
-  router,
-});
-
-new Vue({
-  render: h => h(App),
-  router,
-}).$mount('#app');
+createApp(App)
+  .use(router)
+  .use(VueMinesweeper)
+  .mount('#app');

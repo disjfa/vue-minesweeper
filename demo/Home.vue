@@ -11,7 +11,7 @@
         <h3>Play a game</h3>
         <div class="row">
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg btn-block btn-success" :to="{
+            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
               name: 'game',
               params: {
                 rows: 9,
@@ -24,7 +24,7 @@
             <p class="pt-3">A simple 9x9 beginner game</p>
           </div>
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg btn-block btn-success" :to="{
+            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
               name: 'game',
               params: {
                 rows: 16,
@@ -37,7 +37,7 @@
             <p class="pt-3">Intermediate, a 16x16 board</p>
           </div>
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg btn-block btn-success" :to="{
+            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
               name: 'game',
               params: {
                 rows: 16,
@@ -53,21 +53,21 @@
       </div>
     </div>
 
-    <form class="bg-primary py-3 text-light" @submit="updateRoute">
+    <form class="bg-primary py-3 text-light" @submit.prevent="updateRoute">
       <div class="container">
         <h3>Or start a custom game</h3>
         <div class="row">
-          <div class="form-group col-12 col-md-4">
+          <div class="mb-3 col-12 col-md-4">
             <label for="input-rows">Rows</label>
             <input type="number" v-model.number="rows" class="form-control"
                    min="1" max="50" id="input-rows">
           </div>
-          <div class="form-group col-12 col-md-4">
+          <div class="mb-3 col-12 col-md-4">
             <label for="input-cols">Cols</label>
             <input type="number" v-model.number="cols" class="form-control"
                    min="1" max="50" id="input-cols">
           </div>
-          <div class="form-group col-12 col-md-4">
+          <div class="mb-3 col-12 col-md-4">
             <label for="input-bombs">Bombs</label>
             <input type="number" v-model.number="bombs" class="form-control"
                    min="1" max="99" id="input-bombs">
@@ -122,18 +122,11 @@ export default {
       this.cols = parseInt(cols) || 9;
       this.bombs = parseInt(bombs) || 10;
     },
-    updateRoute(extraParams) {
-      console.log('a');
+    updateRoute() {
       const { rows, cols, bombs } = this;
-      const params = Object.assign({
-        rows,
-        cols,
-        bombs,
-      }, extraParams);
-
       this.$router.push({
         name: 'game',
-        params,
+        params: { rows, cols, bombs },
       });
     },
   },

@@ -15,10 +15,9 @@
         v-for="(cell, i) in grid"
         :key="i"
         :cell="cell"
-        @click.native="clickCell(cell, i)"
-        @click.right.native="addFlag(cell)"
-        @dblclick.native.prevent="doubleClick(cell, i)"
-        @contextmenu.native.prevent
+        @click="clickCell(cell, i)"
+        @contextmenu.prevent="addFlag(cell)"
+        @dblclick.prevent="doubleClick(cell, i)"
       >
       </minesweeper-cell>
     </div>
@@ -71,7 +70,6 @@ export default {
       const size = rows * cols;
       const grid = [];
       if (bombs > size) {
-        console.log('more bombs than space on the grid!');
         return;
       }
       for (let i = 0; i < size; i += 1) {

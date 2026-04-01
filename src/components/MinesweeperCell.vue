@@ -1,5 +1,11 @@
 <template>
-  <div class="minesweeper-cell" :class="getClass()">
+  <div
+    class="minesweeper-cell"
+    :class="getClass()"
+    @click="$emit('click')"
+    @contextmenu="$emit('contextmenu', $event)"
+    @dblclick="$emit('dblclick', $event)"
+  >
     <div v-if="cell.isOpen && cell.bombCount">
       {{ cell.bombCount }}
     </div>
@@ -12,6 +18,7 @@
 <script>
 export default {
   name: 'minesweeper-cell',
+  emits: ['click', 'contextmenu', 'dblclick'],
   props: {
     cell: {
       type: Object,

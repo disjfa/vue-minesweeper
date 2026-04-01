@@ -1,7 +1,7 @@
 # Vue minesweeper
 
 [![version][version-badge]][package]
-[![MIT License][license-badge]][LICENSE]
+[![MIT License][license-badge]][license]
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -14,7 +14,7 @@
 
 [codepen.io](https://codepen.io/disjfa/pen/axdmob)
 
-## Instalation
+## Installation
 
 ```
 npm install vue-minesweeper
@@ -23,15 +23,24 @@ npm install vue-minesweeper
 ## Getting started
 
 ```javascript
-import Vue from 'vue'; // Load vue
-import App from './App'; // Load your app
+import { createApp } from 'vue'; // Load Vue
+import App from './App.vue'; // Load your app
 import VueMinesweeper from 'vue-minesweeper';
 
-Vue.use(VueMinesweeper); // Add the game
+createApp(App)
+  .use(VueMinesweeper) // Add the game plugin
+  .mount('#app');
+```
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+## Development (Vite)
+
+```bash
+npm run dev
+npm run lint
+npm run test
+npm run build
+npm run build:demo
+npm run preview
 ```
 
 ## Usage
@@ -60,17 +69,18 @@ Copy paste this and you can get started.
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue minesweeper</title>
-  <link rel="stylesheet" href="https://unpkg.com/vue-minesweeper/dist/VueMinesweeper.css">
+  <link rel="stylesheet" href="https://unpkg.com/vue-minesweeper/dist/vue-minesweeper.css">
 </head>
 <body>
     <div id="app">
       <minesweeper-game></minesweeper-game>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <script src="https://unpkg.com/vue-minesweeper/dist/VueMinesweeper.umd.min.js"></script>
     <script>
-      var app = new Vue();
-      app.$mount("#app");
+      var app = Vue.createApp({});
+      app.use(VueMinesweeper);
+      app.mount("#app");
     </script>
 </body>
 </html>

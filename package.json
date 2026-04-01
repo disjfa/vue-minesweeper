@@ -1,6 +1,6 @@
 {
     "name": "vue-minesweeper",
-    "version": "0.1.2",
+    "version": "2.0.0",
     "description": "Minesweeper plugin for vuejs",
     "license": "MIT",
     "author": "disjfa <disjfa@disjfa.nl>",
@@ -13,44 +13,49 @@
         "url": "https://github.com/disjfa/vue-minesweeper/issues"
     },
     "scripts": {
-        "build": "vue-cli-service build --target lib --name VueMinesweeper src/index.js",
-        "build:demo": "vue-cli-service build ./demo/main",
+        "dev": "vite --config vite.config.mjs",
+        "build": "vite build --config vite.lib.config.mjs",
+        "build:demo": "vite build --config vite.config.mjs",
+        "preview": "vite preview --config vite.config.mjs",
         "contributors:add": "all-contributors add",
         "contributors:generate": "all-contributors generate",
-        "deploy": "npm run build:demo && gh-pages -d dist",
-        "lint": "vue-cli-service lint",
-        "serve": "vue-cli-service serve ./demo/main",
-        "test:unit": "vue-cli-service test:unit"
+        "deploy": "npm run build:demo && gh-pages -d dist-demo",
+        "lint": "oxlint . --ignore-path .oxlintignore",
+        "format": "prettier --write .",
+        "test": "vitest run --config vitest.config.mjs",
+        "test:watch": "vitest --config vitest.config.mjs",
+        "test:unit": "vitest run --config vitest.config.mjs"
     },
     "peerDependencies": {
-        "vue": "^2.6.6"
+        "vue": "^3.4.0"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.8.0",
-        "@vue/cli-plugin-eslint": "^3.8.0",
-        "@vue/cli-plugin-unit-jest": "^3.8.0",
-        "@vue/cli-service": "^3.8.0",
-        "@vue/eslint-config-airbnb": "^4.0.0",
-        "@vue/test-utils": "1.0.0-beta.29",
-        "all-contributors-cli": "^6.6.1",
-        "babel-core": "7.0.0-bridge.0",
-        "babel-eslint": "^10.0.1",
-        "babel-jest": "^24.8.0",
-        "core-js": "^2.6.9",
-        "eslint": "^5.8.0",
-        "eslint-plugin-vue": "^5.0.0",
-        "gh-pages": "^2.0.1",
-        "node-sass": "^4.12.0",
-        "sass-loader": "^7.1.0",
-        "vue": "^2.6.6",
-        "vue-analytics": "^5.17.0",
-        "vue-router": "^3.0.6",
-        "vue-template-compiler": "^2.5.21"
+        "@vitejs/plugin-vue": "^6.0.5",
+        "@vue/compiler-sfc": "^3.5.31",
+        "@vue/test-utils": "^2.4.6",
+        "all-contributors-cli": "^6.26.1",
+        "oxlint": "^1.58.0",
+        "gh-pages": "^6.3.0",
+        "jsdom": "^29.0.1",
+        "autoprefixer": "^10.4.27",
+        "prettier": "^3.8.1",
+        "sass": "^1.98.0",
+        "vite": "^8.0.3",
+        "vitest": "^4.1.2",
+        "vue": "^3.5.31",
+        "vue-router": "^5.0.4"
     },
-    "main": "dist/VueMinesweeper.umd.js",
-    "browser": "dist/VueMinesweeper.common.js",
+    "main": "dist/VueMinesweeper.umd.min.js",
+    "module": "dist/VueMinesweeper.es.js",
     "unpkg": "dist/VueMinesweeper.umd.min.js",
     "jsDelivr": "dist/VueMinesweeper.umd.min.js",
+    "style": "dist/vue-minesweeper.css",
+    "exports": {
+        ".": {
+            "import": "./dist/VueMinesweeper.es.js",
+            "require": "./dist/VueMinesweeper.umd.min.js"
+        }
+    },
     "files": [
         "dist",
         "src"

@@ -1,12 +1,18 @@
 import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
+import { describe, it, expect } from 'vitest';
+import VueMinesweeper from '@/index';
+import MinesweeperGame from '@/components/MinesweeperGame.vue';
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message';
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg },
+describe('VueMinesweeper plugin', () => {
+  it('registers MinesweeperGame as a global component', () => {
+    const wrapper = shallowMount({
+      template: '<minesweeper-game />',
+    }, {
+      global: {
+        plugins: [VueMinesweeper],
+      },
     });
-    expect(wrapper.text()).toMatch(msg);
+
+    expect(wrapper.findComponent(MinesweeperGame).exists()).toBe(true);
   });
 });

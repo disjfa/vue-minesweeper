@@ -21,6 +21,9 @@ export default {
   mounted() {
     this.initTimer();
   },
+  beforeUnmount() {
+    window.cancelAnimationFrame(this.timerReq);
+  },
   methods: {
     initTimer() {
       if (this.finished) {
@@ -36,7 +39,7 @@ export default {
       }
       this.theTime = (timestamp - this.timer) / 1000;
       if (!this.finished) {
-        window.requestAnimationFrame(this.setTimer);
+        this.timerReq = window.requestAnimationFrame(this.setTimer);
       }
     },
   },
