@@ -1,6 +1,6 @@
 {
     "name": "vue-minesweeper",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "description": "Minesweeper plugin for vuejs",
     "license": "MIT",
     "author": "disjfa <disjfa@disjfa.nl>",
@@ -51,11 +51,15 @@
     "jsDelivr": "dist/VueMinesweeper.umd.min.js",
     "style": "dist/vue-minesweeper.css",
     "exports": {
-         ".": {
+        ".": {
             "style": "./dist/vue-minesweeper.css",
             "import": "./dist/VueMinesweeper.es.js",
-            "require": "./dist/VueMinesweeper.umd.min.js"
-        }
+            "require": "./dist/VueMinesweeper.umd.min.js",
+            "default": "./dist/VueMinesweeper.es.js"
+        },
+        "./style.css": "./dist/vue-minesweeper.css",
+        "./dist/vue-minesweeper.css": "./dist/vue-minesweeper.css",
+        "./package.json": "./package.json"
     },
     "files": [
         "dist",

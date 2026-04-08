@@ -12,7 +12,7 @@
 
 ## Examples
 
-[codepen.io](https://codepen.io/disjfa/pen/axdmob)
+[View on js.org](https://vue-minesweeper.js.org/)
 
 ## Installation
 
@@ -22,6 +22,8 @@ npm install vue-minesweeper
 
 ## Getting started
 
+### Add as plugin
+
 ```javascript
 import { createApp } from 'vue'; // Load Vue
 import App from './App.vue'; // Load your app
@@ -30,6 +32,13 @@ import VueMinesweeper from 'vue-minesweeper';
 createApp(App)
   .use(VueMinesweeper) // Add the game plugin
   .mount('#app');
+```
+
+## Importing the styles
+
+```css
+@import "vue-minesweeper/style.css";
+
 ```
 
 ## Development (Vite)
@@ -55,35 +64,6 @@ Setup your own grid and bomb.
 
 ```html
 <minesweeper-game :rows="16" :cols="30" :bombs="99"></minesweeper-game>
-```
-
-## Usage with the vue cdn
-
-Copy paste this and you can get started.
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue minesweeper</title>
-  <link rel="stylesheet" href="https://unpkg.com/vue-minesweeper/dist/vue-minesweeper.css">
-</head>
-<body>
-    <div id="app">
-      <minesweeper-game></minesweeper-game>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
-    <script src="https://unpkg.com/vue-minesweeper/dist/VueMinesweeper.umd.min.js"></script>
-    <script>
-      var app = Vue.createApp({});
-      app.use(VueMinesweeper);
-      app.mount("#app");
-    </script>
-</body>
-</html>
 ```
 
 ## Contributors
