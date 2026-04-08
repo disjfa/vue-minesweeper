@@ -51,7 +51,7 @@
     "jsDelivr": "dist/VueMinesweeper.umd.min.js",
     "style": "dist/vue-minesweeper.css",
     "exports": {
-         "./*": {
+         ".": {
             "style": "./dist/*.css",
             "import": "./dist/*.es.js",
             "require": "./dist/*.umd.min.js"
