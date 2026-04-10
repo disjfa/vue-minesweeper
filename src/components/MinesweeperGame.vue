@@ -2,11 +2,9 @@
   <div class="minesweeper">
     <div class="minesweeper-status">
       <div class="minesweeper-bombcount">
-        {{bombCount}}
+        {{ bombCount }}
       </div>
-      <a href="#" @click.prevent="initGrid">
-        &#9786;
-      </a>
+      <a href="#" @click.prevent="initGrid"> &#9786; </a>
       <minesweeper-timer class="minesweeper-timer" :finished="finished"></minesweeper-timer>
     </div>
 
@@ -103,7 +101,7 @@ export default {
       if (this.bombCount !== 0) {
         return;
       }
-      const remainingGrid = this.grid.find(g => !g.isOpen && !g.hasFlag);
+      const remainingGrid = this.grid.find((g) => !g.isOpen && !g.hasFlag);
       if (!remainingGrid) {
         this.finished = true;
         this.won = true;
@@ -237,38 +235,38 @@ export default {
 </script>
 
 <style lang="scss">
-  .minesweeper {
-    &-status {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
+.minesweeper {
+  &-status {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 
-      > * {
-        flex: 1;
-        text-align: center;
-      }
-    }
-
-    &-grid {
-      user-select: none;
-      position: relative;
-      overflow: auto;
-      display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      grid-auto-rows: 1fr;
-
-      &:before {
-        content: '';
-        width: 0;
-        padding-bottom: 100%;
-        grid-row: 1 / 1;
-        grid-column: 1 / 1;
-      }
-
-      > *:first-child {
-        grid-row: 1 / 1;
-        grid-column: 1 / 1;
-      }
+    > * {
+      flex: 1;
+      text-align: center;
     }
   }
+
+  &-grid {
+    user-select: none;
+    position: relative;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-rows: 1fr;
+
+    &:before {
+      content: '';
+      width: 0;
+      padding-bottom: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    > *:first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+  }
+}
 </style>

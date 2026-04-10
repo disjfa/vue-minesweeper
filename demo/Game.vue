@@ -2,7 +2,7 @@
   <div>
     <div class="bg-light">
       <div class="container py-3">
-        <router-link :to="{name: 'home'}" class="btn btn-outline-secondary" aria-label="Back">
+        <router-link :to="{ name: 'home' }" class="btn btn-outline-secondary" aria-label="Back">
           <i class="fa fa-arrow-left"></i>
         </router-link>
         <h3 class="d-inline btn">Vue minesweeper</h3>
@@ -10,17 +10,14 @@
     </div>
     <div class="container pb-3">
       <div class="row justify-content-md-center">
-        <div class="col"
-             v-if="doesItFit()"
-             :class="{'col-md-9 col-lg-7': cols < 14}"
-        >
+        <div class="col" v-if="doesItFit()" :class="{ 'col-md-9 col-lg-7': cols < 14 }">
           <minesweeper-game :rows="rows" :cols="cols" :bombs="bombs"></minesweeper-game>
         </div>
         <div v-else>
           <h3 class="text-center">416: Out of range</h3>
           <p>Cols and rows are max 50. But you may have 99 bombs!</p>
-          <br>
-          <img src="https://http.cat/416" alt="Out of range" class="img-fluid">
+          <br />
+          <img src="https://http.cat/416" alt="Out of range" class="img-fluid" />
         </div>
       </div>
     </div>
@@ -43,7 +40,7 @@ export default {
   methods: {
     doesItFit() {
       const { rows, cols, bombs } = this;
-      if ((rows * cols) < bombs) {
+      if (rows * cols < bombs) {
         return false;
       }
       if (rows > 50) {
@@ -65,11 +62,14 @@ export default {
     },
     updateRoute(extraParams) {
       const { rows, cols, bombs } = this;
-      const params = Object.assign({
-        rows,
-        cols,
-        bombs,
-      }, extraParams);
+      const params = Object.assign(
+        {
+          rows,
+          cols,
+          bombs,
+        },
+        extraParams,
+      );
 
       this.$router.push({
         name: 'game',

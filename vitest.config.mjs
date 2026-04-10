@@ -18,4 +18,3 @@ export default defineConfig({
     include: ['tests/unit/**/*.spec.js'],
   },
 });
-

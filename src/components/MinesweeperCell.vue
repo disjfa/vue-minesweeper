@@ -9,9 +9,7 @@
     <div v-if="cell.isOpen && cell.bombCount">
       {{ cell.bombCount }}
     </div>
-    <div v-if="cell.hasFlag">
-      &#9873;
-    </div>
+    <div v-if="cell.hasFlag">&#9873;</div>
   </div>
 </template>
 
@@ -44,30 +42,48 @@ export default {
 </script>
 
 <style lang="scss">
+.minesweeper {
+  &-cell {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px white solid;
+    color: #2c3e50;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.3em;
+    justify-content: center;
+    min-height: 35px;
+    min-width: 35px;
+  }
+
+  &-bomb {
+    background: #c0392b;
+  }
+
+  &-open {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &-flag {
+    background: #2ecc71;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
   .minesweeper {
     &-cell {
-      align-items: center;
-      background: rgba(0, 0, 0, 0.1);
-      border: 1px white solid;
-      color: #2c3e50;
-      cursor: pointer;
-      display: flex;
-      font-size: 1.3em;
-      justify-content: center;
-      min-height: 35px;
-      min-width: 35px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
     }
-
     &-bomb {
       background: #c0392b;
     }
-
     &-open {
-      background: rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.05);
     }
-
     &-flag {
       background: #2ecc71;
     }
   }
+}
 </style>

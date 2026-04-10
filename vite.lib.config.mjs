@@ -19,7 +19,8 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.js'),
       name: 'VueMinesweeper',
       formats: ['es', 'umd'],
-      fileName: (format) => (format === 'es' ? 'VueMinesweeper.es.js' : 'VueMinesweeper.umd.min.js'),
+      fileName: (format) =>
+        format === 'es' ? 'VueMinesweeper.es.js' : 'VueMinesweeper.umd.min.js',
     },
     rollupOptions: {
       external: ['vue'],
@@ -32,6 +33,3 @@ export default defineConfig({
     },
   },
 });
-
-
-

@@ -10,26 +10,34 @@
         <a class="btn btn-outline-secondary m-1" href="https://github.com/disjfa/vue-minesweeper">
           <i class="fab fa-github"></i> github
         </a>
-        <a class="btn btn-outline-secondary m-1" href="https://www.npmjs.com/package/vue-minesweeper">
+        <a
+          class="btn btn-outline-secondary m-1"
+          href="https://www.npmjs.com/package/vue-minesweeper"
+        >
           <i class="fab fa-npm"></i> npm
         </a>
         <a class="btn btn-outline-secondary m-1" href="https://codepen.io/disjfa/pen/axdmob">
           <i class="fab fa-codepen"></i> codepen
         </a>
-        <a class="btn btn-outline-secondary m-1" href="https://medium.com/@disjfa/vue-creating-custom-component-bc939e40421a">
+        <a
+          class="btn btn-outline-secondary m-1"
+          href="https://medium.com/@disjfa/vue-creating-custom-component-bc939e40421a"
+        >
           <i class="fab fa-medium"></i> medium
         </a>
-        <a class="btn btn-outline-secondary m-1" href="https://github.com/disjfa/vue-minesweeper/issues">
+        <a
+          class="btn btn-outline-secondary m-1"
+          href="https://github.com/disjfa/vue-minesweeper/issues"
+        >
           <i class="fa fa-exclamation-circle"></i> issues?
         </a>
       </div>
     </div>
-    <br><br><br><br><br><br>
+    <br /><br /><br /><br /><br /><br />
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'app',
   methods: {

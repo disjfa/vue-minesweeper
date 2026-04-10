@@ -2,48 +2,61 @@
   <div>
     <div class="container py-3">
       <h1>Vue minesweeper</h1>
-      <p class="lead">
-        A simple minesweeper game.
-      </p>
+      <p class="lead">A simple minesweeper game.</p>
     </div>
     <div class="bg-light">
       <div class="container py-3">
         <h3>Play a game</h3>
         <div class="row">
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
-              name: 'game',
-              params: {
-                rows: 9,
-                cols: 9,
-                bombs: 10,
-              }}">
+            <router-link
+              href="#"
+              class="btn btn-lg w-100 btn-success"
+              :to="{
+                name: 'game',
+                params: {
+                  rows: 9,
+                  cols: 9,
+                  bombs: 10,
+                },
+              }"
+            >
               <i class="fa fa-baby"></i>
               Beginner
             </router-link>
             <p class="pt-3">A simple 9x9 beginner game</p>
           </div>
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
-              name: 'game',
-              params: {
-                rows: 16,
-                cols: 16,
-                bombs: 40,
-              }}">
+            <router-link
+              href="#"
+              class="btn btn-lg w-100 btn-success"
+              :to="{
+                name: 'game',
+                params: {
+                  rows: 16,
+                  cols: 16,
+                  bombs: 40,
+                },
+              }"
+            >
               <i class="fa fa-user"></i>
               Intermediate
             </router-link>
             <p class="pt-3">Intermediate, a 16x16 board</p>
           </div>
           <div class="col-12 col-md-4 py-3">
-            <router-link href="#" class="btn btn-lg w-100 btn-success" :to="{
-              name: 'game',
-              params: {
-                rows: 16,
-                cols: 30,
-                bombs: 99,
-              }}">
+            <router-link
+              href="#"
+              class="btn btn-lg w-100 btn-success"
+              :to="{
+                name: 'game',
+                params: {
+                  rows: 16,
+                  cols: 30,
+                  bombs: 99,
+                },
+              }"
+            >
               <i class="fa fa-user-astronaut"></i>
               Expert
             </router-link>
@@ -59,18 +72,36 @@
         <div class="row">
           <div class="mb-3 col-12 col-md-4">
             <label for="input-rows">Rows</label>
-            <input type="number" v-model.number="rows" class="form-control"
-                   min="1" max="50" id="input-rows">
+            <input
+              type="number"
+              v-model.number="rows"
+              class="form-control"
+              min="1"
+              max="50"
+              id="input-rows"
+            />
           </div>
           <div class="mb-3 col-12 col-md-4">
             <label for="input-cols">Cols</label>
-            <input type="number" v-model.number="cols" class="form-control"
-                   min="1" max="50" id="input-cols">
+            <input
+              type="number"
+              v-model.number="cols"
+              class="form-control"
+              min="1"
+              max="50"
+              id="input-cols"
+            />
           </div>
           <div class="mb-3 col-12 col-md-4">
             <label for="input-bombs">Bombs</label>
-            <input type="number" v-model.number="bombs" class="form-control"
-                   min="1" max="99" id="input-bombs">
+            <input
+              type="number"
+              v-model.number="bombs"
+              class="form-control"
+              min="1"
+              max="99"
+              id="input-bombs"
+            />
           </div>
         </div>
         <div class="row">
@@ -102,7 +133,7 @@ export default {
   methods: {
     doesItFit() {
       const { rows, cols, bombs } = this;
-      if ((rows * cols) < bombs) {
+      if (rows * cols < bombs) {
         return false;
       }
       if (rows > 50) {

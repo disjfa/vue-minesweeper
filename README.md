@@ -37,8 +37,7 @@ createApp(App)
 ## Importing the styles
 
 ```css
-@import "vue-minesweeper/style.css";
-
+@import 'vue-minesweeper/style.css';
 ```
 
 ## Development (Vite)

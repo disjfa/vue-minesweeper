@@ -5,13 +5,16 @@ import MinesweeperGame from '@/components/MinesweeperGame.vue';
 
 describe('VueMinesweeper plugin', () => {
   it('registers MinesweeperGame as a global component', () => {
-    const wrapper = shallowMount({
-      template: '<minesweeper-game />',
-    }, {
-      global: {
-        plugins: [VueMinesweeper],
+    const wrapper = shallowMount(
+      {
+        template: '<minesweeper-game />',
       },
-    });
+      {
+        global: {
+          plugins: [VueMinesweeper],
+        },
+      },
+    );
 
     expect(wrapper.findComponent(MinesweeperGame).exists()).toBe(true);
   });

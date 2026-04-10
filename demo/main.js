@@ -27,7 +27,4 @@ const router = createRouter({
   ],
 });
 
-createApp(App)
-  .use(router)
-  .use(VueMinesweeper)
-  .mount('#app');
+createApp(App).use(router).use(VueMinesweeper).mount('#app');
